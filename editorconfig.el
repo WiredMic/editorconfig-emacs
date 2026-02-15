@@ -274,6 +274,8 @@ This hook will be run even when there are no matching sections in
                   verilog-indent-level-module
                   verilog-cexp-indent
                   verilog-case-indent)
+    (vhdl-mode . editorconfig--get-indentation-vhdl-mode)
+    (vhdl-ts-mode vhdl-ts-indent-level)
     (web-mode . editorconfig--get-indentation-web-mode)
     (yaml-ts-mode yaml-indent-offset))
   "Alist of indentation setting methods by modes.
@@ -414,6 +416,11 @@ Make a message by passing ARGS to `format-message'."
                (not (eql size editorconfig-lisp-use-default-indent)))
               (t t))
     `((lisp-indent-offset . ,size))))
+
+(defun editorconfig--get-indentation-vhdl-mode (size)
+  "Set VHDL indentation to SIZE and handle its custom indent-tabs-mode."
+  `((vhdl-basic-offset . ,size)
+    (vhdl-indent-tabs-mode . ,indent-tabs-mode)))
 
 (cl-defun editorconfig--should-set (symbol)
   "Determine if editorconfig should set SYMBOL."
