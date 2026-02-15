@@ -453,7 +453,7 @@ set them to.
 Major modes are expected to set this buffer-locally.")
 
 (defun editorconfig--default-indent-size-function (size)
-  "Guess which variables to set to for the indentation step to have size SIZE.
+ "Guess which variables to set to for the indentation step to have size SIZE.
 This relies on `editorconfig-indentation-alist' supplemented with a crude
 heuristic for those modes not found there."
   (let ((parents (if (fboundp 'derived-mode-all-parents) ;Emacs-30
