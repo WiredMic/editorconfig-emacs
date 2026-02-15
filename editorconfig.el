@@ -267,7 +267,6 @@ This hook will be run even when there are no matching sections in
     (templ-ts-mode go-ts-mode-indent-offset js-indent-level)
     (toml-ts-mode toml-ts-mode-indent-offset)
     (typescript-ts-base-mode typescript-ts-mode-indent-offset)
-    (typst-ts-mode typst-ts-indent-offset)
     (verilog-mode verilog-indent-level
                   verilog-indent-level-behavioral
                   verilog-indent-level-declaration
@@ -275,7 +274,6 @@ This hook will be run even when there are no matching sections in
                   verilog-cexp-indent
                   verilog-case-indent)
     (vhdl-mode . editorconfig--get-indentation-vhdl-mode)
-    (vhdl-ts-mode vhdl-ts-indent-level)
     (web-mode . editorconfig--get-indentation-web-mode)
     (yaml-ts-mode yaml-indent-offset))
   "Alist of indentation setting methods by modes.
