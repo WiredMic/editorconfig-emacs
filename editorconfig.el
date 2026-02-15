@@ -238,6 +238,7 @@ This hook will be run even when there are no matching sections in
     (meson-mode meson-indent-basic)
     (mips-mode mips-tab-width)
     (mustache-mode mustache-basic-offset)
+    (nix-ts-mode nix-ts-mode-indent-offset)
     (nxml-mode . editorconfig--get-indentation-nxml-mode)
     (objc-mode c-basic-offset)
     (octave-mode octave-block-offset)
@@ -305,7 +306,7 @@ When variable `buffer-file-name' matches any of the regexps, then
 (with-eval-after-load 'recentf
   (add-to-list 'editorconfig-exclude-regexps
                (rx-to-string '(seq string-start
-                                   (eval (file-truename (expand-file-name recentf-save-file))))
+                               (eval (file-truename (expand-file-name recentf-save-file))))
                              t)))
 
 (defcustom editorconfig-trim-whitespaces-mode
@@ -444,7 +445,7 @@ set them to.
 Major modes are expected to set this buffer-locally.")
 
 (defun editorconfig--default-indent-size-function (size)
- "Guess which variables to set to for the indentation step to have size SIZE.
+  "Guess which variables to set to for the indentation step to have size SIZE.
 This relies on `editorconfig-indentation-alist' supplemented with a crude
 heuristic for those modes not found there."
   (let ((parents (if (fboundp 'derived-mode-all-parents) ;Emacs-30
